@@ -73,7 +73,7 @@
   }
 
   body {
-    @apply bg-white text-pebble-text font-fustat min-h-screen;
+    @apply bg-background text-foreground font-fustat min-h-screen;
   }
 
   html {
@@ -81,11 +81,11 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-funnel font-bold text-pebble-darkBlue tracking-wide;
+    @apply font-funnel font-bold text-primary tracking-wide;
   }
 
   p {
-    @apply font-fustat text-pebble-secondaryText;
+    @apply font-fustat text-muted-foreground;
   }
   
   @media (max-width: 768px) {
