@@ -11,8 +11,8 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  // Use relative paths for better compatibility
-  base: "./",
+  // Set base path for GitHub Pages
+  base: "/Tk/",
   plugins: [
     react(),
   ],

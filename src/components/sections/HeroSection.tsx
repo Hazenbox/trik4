@@ -12,51 +12,66 @@ const HeroSection: React.FC = () => {
     // Wait for the DOM to be ready
     const ctx = gsap.context(() => {
       // Hero text animations
-      gsap.from(".hero-title span", {
-        opacity: 0,
-        y: 100,
-        stagger: 0.1,
-        duration: 1,
-        ease: "power3.out",
-      });
+      const heroTitleSpans = document.querySelectorAll(".hero-title span");
+      if (heroTitleSpans.length > 0) {
+        gsap.from(heroTitleSpans, {
+          opacity: 0,
+          y: 100,
+          stagger: 0.1,
+          duration: 1,
+          ease: "power3.out",
+        });
+      }
 
-      gsap.from(".hero-subtitle", {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        delay: 0.5,
-        ease: "power3.out",
-      });
+      const heroSubtitle = document.querySelector(".hero-subtitle");
+      if (heroSubtitle) {
+        gsap.from(heroSubtitle, {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          delay: 0.5,
+          ease: "power3.out",
+        });
+      }
 
-      gsap.from(".hero-button", {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        delay: 0.8,
-        ease: "power3.out",
-      });
+      const heroButton = document.querySelector(".hero-button");
+      if (heroButton) {
+        gsap.from(heroButton, {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          delay: 0.8,
+          ease: "power3.out",
+        });
+      }
 
       // Marquee animation
-      gsap.to(".marquee-wrapper", {
-        xPercent: -50,
-        ease: "none",
-        duration: 30,
-        repeat: -1,
-      });
+      const marqueeWrapper = document.querySelector(".marquee-wrapper");
+      if (marqueeWrapper) {
+        gsap.to(marqueeWrapper, {
+          xPercent: -50,
+          ease: "none",
+          duration: 30,
+          repeat: -1,
+        });
+      }
       
       // Section entry/exit animations
-      gsap.to(`#${sectionId}`, {
-        opacity: 1,
-        duration: 1.2,
-        delay: 0.2,
-      });
+      const section = document.querySelector(`#${sectionId}`);
+      if (section) {
+        gsap.to(section, {
+          opacity: 1,
+          duration: 1.2,
+          delay: 0.2,
+        });
+      }
     });
 
     return () => {
       // Clean up
       ctx.revert();
     };
-  }, []);
+  }, [sectionId]);
 
   // Split text animation helper
   const SplitText = ({ text }: { text: string }) => {

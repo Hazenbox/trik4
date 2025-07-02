@@ -21,7 +21,7 @@ gsap.registerPlugin(ScrollTrigger);
 const getBasename = () => {
   // Use the base path from Vite config in production
   if (import.meta.env.PROD) {
-    return '/Tk';
+    return '/Tk/';
   }
   // No base path needed in development
   return '/';
